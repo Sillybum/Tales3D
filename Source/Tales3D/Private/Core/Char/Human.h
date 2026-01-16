@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Title: TalesWeaver 3D clone game / License: GPLv3 / Github: Sillybum
 
 #pragma once
 
@@ -6,24 +6,23 @@
 #include "GameFramework/Character.h"
 #include "Human.generated.h"
 
+class UCameraComponent;
+class USpringArmComponent;
+
 UCLASS()
 class AHuman : public ACharacter
 {
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this character's properties
 	AHuman();
 
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
+	
+	// Topdown Camera
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Camera")
+	TObjectPtr<USpringArmComponent> CameraBoom;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Camera")
+	TObjectPtr<UCameraComponent> TopDownCamera;
 };

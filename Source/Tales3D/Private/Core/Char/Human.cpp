@@ -1,34 +1,49 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Title: TalesWeaver 3D clone game / License: GPLv3 / Github: Sillybum
 
 
 #include "Core/Char/Human.h"
 
-// Sets default values
+#include "Camera/CameraComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
+#include "GameFramework/SpringArmComponent.h"
+
 AHuman::AHuman()
 {
- 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 
+	// 컨트롤러 회전과 캐릭터 회전 분리
+	bUseControllerRotationPitch	= false;
+	bUseControllerRotationRoll	= false;
+	bUseControllerRotationYaw	= false;
+	
+	// 이동방향으로 캐릭터 회전
+	if (UCharacterMovementComponent* MoveComp = GetCharacterMovement())
+	{
+		MoveComp->bOrientRotationToMovement	= true;
+		MoveComp->RotationRate				= FRotator(0.f, 720.f, 0.f);
+		MoveComp->MaxWalkSpeed				= 500.f;
+	}
+	
+	// 카메라 붐 생성
+	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
+	CameraBoom->SetupAttachment(RootComponent);
+	// 카메라 붐 거리/각도
+	CameraBoom->TargetArmLength = 900.f;
+	CameraBoom->SetRelativeRotation(FRotator(-60.f, 0.f, 0.f));
+	// 벽에 부딪혔을 때 줌인 방지
+	CameraBoom->bDoCollisionTest = false;
+	// 컨트롤러 회전 무시
+	CameraBoom->bUsePawnControlRotation = false;
+	// 월드 회전 고정
+	CameraBoom->SetUsingAbsoluteRotation(true);
+	// 카메라 생성
+	TopDownCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("TopDownCamera"));
+	TopDownCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
+	TopDownCamera->bUsePawnControlRotation = false;
 }
 
-// Called when the game starts or when spawned
 void AHuman::BeginPlay()
 {
 	Super::BeginPlay();
 	
 }
-
-// Called every frame
-void AHuman::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
-}
-
-// Called to bind functionality to input
-void AHuman::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-{
-	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
-}
-

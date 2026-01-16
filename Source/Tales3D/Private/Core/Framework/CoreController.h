@@ -1,0 +1,38 @@
+// Title: TalesWeaver 3D clone game / License: GPLv3 / Github: Sillybum
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/PlayerController.h"
+#include "CoreController.generated.h"
+
+/**
+ * 
+ */
+UCLASS()
+class ACoreController : public APlayerController
+{
+	GENERATED_BODY()
+	
+protected:
+	virtual void BeginPlay() override;
+	virtual void SetupInputComponent() override;
+	virtual void PlayerTick(float DeltaTime) override;
+	
+	// 마우스 클릭 이동
+	void OnSetDestinationPressed();
+	void OnSetDestinationReleased();
+	void UpdateMoveDestination();
+	
+private:
+	// 마우스 이동 틱
+	bool bMoveHeld = false;
+	float MoveUpdateInterval = 0.05f;
+	float TimeSinceLastMoveUpdate = 0.f;
+	
+	// 커서가 크게 움직였을 때만 재계산(경로 재계산 낭비 방지)
+	FVector LastGoal = FVector::ZeroVector;
+	bool bHasLastGoal = false;
+	// 50cm 이상 움직였을 때만 갱신
+	float MinGoalDelta = FMath::Square(50.f);
+};
