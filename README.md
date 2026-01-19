@@ -1,3 +1,7 @@
+<p>
+  <img src="git-resource/image/title.webp" width="50%" height="180" />
+</p>
+
 # 테일즈위버 3D (Game Clone Project)
 
 > 원작: **테일즈위버**  
@@ -5,11 +9,9 @@
 > 플랫폼: **PC**
 > 한 줄 소개: **오랫동안 사랑받는 IP의 3D화**
 
-<p align="center">
-  <img src="[git-resource/image/title.webp]" width="80%" />
-</p>
 
----
+
+
 
 ## 📌 목차
 - [소개](#-소개)
