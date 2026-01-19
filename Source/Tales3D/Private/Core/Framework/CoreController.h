@@ -24,6 +24,9 @@ protected:
 	void OnSetDestinationReleased();
 	void UpdateMoveDestination();
 	
+	// Toggle (Run/Walk)
+	void OnToggleRun();
+	
 private:
 	// 마우스 이동 틱
 	bool bMoveHeld = false;

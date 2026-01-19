@@ -5,14 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4e033c4-e0fe-4576-8186-735bdda618e8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tales3D.dir/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultGame.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultGame.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tales3D.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tales3D.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/_Core/Maps/DefaultMap/8/SG/3RG19MOY96KYWBVTXEUQJ1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/_Core/Maps/DefaultMap/8/SG/3RG19MOY96KYWBVTXEUQJ1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/_Core/Char/Pipeline/Human/Ispin/BP_Ispin.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/Char/Pipeline/Human/Ispin/BP_Ispin.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/_Core/Char/Shared/Human/Anim/Sequence/AS_Idle_A.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/Char/Shared/Human/Anim/Sequence/AS_Idle_A.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/_Core/Char/Shared/Human/Anim/Sequence/AS_Running_A.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/Char/Shared/Human/Anim/Sequence/AS_Running_A.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/_Core/Char/Shared/Human/Anim/Sequence/AS_Walking_B.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/Char/Shared/Human/Anim/Sequence/AS_Walking_B.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Char/Human.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Char/Human.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Char/Human.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Char/Human.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Tales3D.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Tales3D.Build.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,16 +37,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Tales3D" type="Uproject" factoryName="rider.uproject">
       <configuration_1 setup="1">
@@ -129,6 +132,7 @@
       <updated>1768545575534</updated>
       <workItem from="1768545577308" duration="979000" />
       <workItem from="1768547737417" duration="2701000" />
+      <workItem from="1768790097039" duration="6116000" />
     </task>
     <servers />
   </component>

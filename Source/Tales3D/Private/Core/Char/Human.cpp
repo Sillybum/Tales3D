@@ -21,8 +21,10 @@ AHuman::AHuman()
 	{
 		MoveComp->bOrientRotationToMovement	= true;
 		MoveComp->RotationRate				= FRotator(0.f, 720.f, 0.f);
-		MoveComp->MaxWalkSpeed				= 500.f;
 	}
+	
+	bIsRunning = false;
+	ApplyMoveSpeed();
 	
 	// 카메라 붐 생성
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
@@ -46,4 +48,25 @@ void AHuman::BeginPlay()
 {
 	Super::BeginPlay();
 	
+}
+
+void AHuman::ApplyMoveSpeed()
+{
+	if (UCharacterMovementComponent* MoveComp = GetCharacterMovement())
+	{
+		MoveComp->MaxWalkSpeed = bIsRunning ? RunSpeed : WalkSpeed;
+	}
+}
+
+void AHuman::ToggleRunMode()
+{
+	bIsRunning = !bIsRunning;
+	ApplyMoveSpeed();
+	UE_LOG(LogTemp, Warning, TEXT("Run/Walk toggled"));
+}
+
+void AHuman::SetRunMode(bool bRun)
+{
+	bIsRunning = bRun;
+	ApplyMoveSpeed();
 }

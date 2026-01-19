@@ -19,10 +19,33 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
+public:
+	// Toggle (Run/Walk)
+	UFUNCTION(BlueprintCallable, Category="MoveMode")
+	void ToggleRunMode();
 	
+	// 컷씬 등에서 사용할 토글(블루프린트에서 적용 가능하도록)
+	UFUNCTION(BlueprintCallable, Category="MoveMode")
+	void SetRunMode(bool bRun);
+	// 애님블루프린트에서 읽을 값
+	UFUNCTION(BlueprintPure, Category="MoveMode")	
+	bool IsRunning() const { return bIsRunning; }
 	// Topdown Camera
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Camera")
 	TObjectPtr<USpringArmComponent> CameraBoom;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Camera")
 	TObjectPtr<UCameraComponent> TopDownCamera;
+	
+	// Speed (Walk/Run)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="MoveMode")
+	float WalkSpeed = 100.f;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="MoveMode")
+	float RunSpeed = 600.f;
+	
+	// 애님블루프린트가 읽을 실제 상태
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="MoveMode")
+	bool bIsRunning = false;
+	
+private:
+	void ApplyMoveSpeed();
 };

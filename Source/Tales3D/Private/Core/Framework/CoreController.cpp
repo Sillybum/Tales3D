@@ -4,6 +4,7 @@
 #include "Core/Framework/CoreController.h"
 
 #include "Blueprint/AIBlueprintHelperLibrary.h"
+#include "Core/Char/Human.h"
 
 void ACoreController::BeginPlay()
 {
@@ -22,6 +23,7 @@ void ACoreController::SetupInputComponent()
 	// 이동 마우스 입력 연결
 	InputComponent->BindAction("SetDestination", IE_Pressed, this, &ACoreController::OnSetDestinationPressed);
 	InputComponent->BindAction("SetDestination", IE_Released, this, &ACoreController::OnSetDestinationReleased);
+	InputComponent->BindAction("ToggleRun", IE_Pressed, this, &ACoreController::OnToggleRun);
 }
 
 void ACoreController::PlayerTick(float DeltaTime)
@@ -82,4 +84,12 @@ void ACoreController::UpdateMoveDestination()
 	bHasLastGoal = true;
 	
 	UAIBlueprintHelperLibrary::SimpleMoveToLocation(this, Goal);
+}
+
+void ACoreController::OnToggleRun()
+{
+	if (AHuman* Human = Cast<AHuman>(GetPawn()))
+	{
+		Human->ToggleRunMode();
+	}
 }
