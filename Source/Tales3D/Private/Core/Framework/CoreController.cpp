@@ -7,6 +7,7 @@
 // Custom
 #include "Core/Char/Human.h"
 #include "Core/Component/Inventory.h"
+#include "Core/Data/ItemData.h"
 
 void ACoreController::BeginPlay()
 {
@@ -127,7 +128,12 @@ void ACoreController::OnInvPrint()
 		FString S = TEXT("[Inventory]\n");
 		for (const FInventoryItem& Item : H->Inventory->GetItems())
 		{
-			S += FString::Printf(TEXT("- %s x%d\n"), *Item.ItemId.ToString(), Item.Quantity);
+			UItemData* Data = H->Inventory->GetItemData(Item.ItemId, true);
+			
+			const FString NameStr = Data ? Data->DisplayName.ToString() : Item.ItemId.ToString();
+			const FString DescStr = Data ? Data->Description.ToString() : TEXT("(No DataAsset)");
+			
+			S += FString::Printf(TEXT("- %s x%d\n  %s\n"), *NameStr, Item.Quantity, *DescStr);
 		}
 		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Green, S);
 	}

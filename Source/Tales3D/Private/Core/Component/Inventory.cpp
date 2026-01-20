@@ -3,6 +3,8 @@
 
 #include "Core/Component/Inventory.h"
 
+#include "Core/Data/ItemData.h"
+#include "Engine/AssetManager.h"
 #include "Net/UnrealNetwork.h"
 
 // Sets default values for this component's properties
@@ -44,6 +46,29 @@ int32 UInventory::GetQuantity(FName ItemId) const
 {
 	const int32 Idx = FindIndex(ItemId);
 	return (Idx != INDEX_NONE) ? Items[Idx].Quantity : 0;
+}
+
+UItemData* UInventory::GetItemData(FName ItemId, bool bLoadSync) const
+{
+	if (ItemId.IsNone())
+	{
+		return nullptr;
+	}
+	const FPrimaryAssetId PrimaryId(UItemData::AssetTypeName, ItemId);
+	UAssetManager& AM = UAssetManager::Get();
+	
+	const FSoftObjectPath Path = AM.GetPrimaryAssetPath(PrimaryId);
+	if (!Path.IsValid())
+	{
+		return nullptr;
+	}
+	// (temp) sync load
+	if (bLoadSync)
+	{
+		return Cast<UItemData>(Path.TryLoad());
+	}
+	
+	return Cast<UItemData>(AM.GetPrimaryAssetObject(PrimaryId));
 }
 
 void UInventory::AddItem(FName ItemId, int32 Amount)

@@ -6,6 +6,8 @@
 #include "Components/ActorComponent.h"
 #include "Inventory.generated.h"
 
+class UItemData;
+
 // Item slot struct
 USTRUCT(BlueprintType)
 struct FInventoryItem
@@ -60,4 +62,8 @@ public:
 	// For UI Binding
 	UPROPERTY(BlueprintAssignable, Category="Inventory")
 	FOnInventoryChanged OnInventoryChanged;
+	
+	// Reads Item Data
+	UFUNCTION(BlueprintPure, Category="Inventory|Data")
+	UItemData* GetItemData(FName ItemId, bool bLoadSync = true) const;
 };
