@@ -27,6 +27,10 @@ protected:
 	// Toggle (Run/Walk)
 	void OnToggleRun();
 	
+	// (Test) Inventory
+	void OnInvAddTest();
+	void OnInvPrint();
+	
 private:
 	// 마우스 이동 틱
 	bool bMoveHeld = false;

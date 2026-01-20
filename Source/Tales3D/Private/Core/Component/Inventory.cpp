@@ -101,3 +101,13 @@ bool UInventory::RemoveItem(FName ItemId, int32 Amount)
 	OnInventoryChanged.Broadcast();
 	return true;
 }
+
+void UInventory::ServerAddItem_Implementation(FName ItemId, int32 Amount)
+{
+	AddItem(ItemId, Amount);
+}
+
+void UInventory::ServerRemoveItem_Implementation(FName ItemId, int32 Amount)
+{
+	RemoveItem(ItemId, Amount);
+}

@@ -8,6 +8,8 @@
 
 class UCameraComponent;
 class USpringArmComponent;
+// Custom Components
+class UInventory;
 
 UCLASS()
 class AHuman : public ACharacter
@@ -38,13 +40,17 @@ public:
 	
 	// Speed (Walk/Run)
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="MoveMode")
-	float WalkSpeed = 100.f;
+	float WalkSpeed = 200.f;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="MoveMode")
 	float RunSpeed = 600.f;
 	
 	// 애님블루프린트가 읽을 실제 상태
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="MoveMode")
 	bool bIsRunning = false;
+	
+	// Inventory
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Inventory")
+	TObjectPtr<UInventory> Inventory;
 	
 private:
 	void ApplyMoveSpeed();

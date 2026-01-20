@@ -6,6 +6,8 @@
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+// Custom
+#include "Core/Component/Inventory.h"
 
 AHuman::AHuman()
 {
@@ -42,6 +44,8 @@ AHuman::AHuman()
 	TopDownCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("TopDownCamera"));
 	TopDownCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
 	TopDownCamera->bUsePawnControlRotation = false;
+	// Inventory
+	Inventory = CreateDefaultSubobject<UInventory>(TEXT("Inventory"));
 }
 
 void AHuman::BeginPlay()

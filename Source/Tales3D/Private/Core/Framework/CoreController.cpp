@@ -4,7 +4,9 @@
 #include "Core/Framework/CoreController.h"
 
 #include "Blueprint/AIBlueprintHelperLibrary.h"
+// Custom
 #include "Core/Char/Human.h"
+#include "Core/Component/Inventory.h"
 
 void ACoreController::BeginPlay()
 {
@@ -24,6 +26,10 @@ void ACoreController::SetupInputComponent()
 	InputComponent->BindAction("SetDestination", IE_Pressed, this, &ACoreController::OnSetDestinationPressed);
 	InputComponent->BindAction("SetDestination", IE_Released, this, &ACoreController::OnSetDestinationReleased);
 	InputComponent->BindAction("ToggleRun", IE_Pressed, this, &ACoreController::OnToggleRun);
+	
+	// (test) Inventory
+	InputComponent->BindAction("InvAddTest", IE_Pressed, this, &ACoreController::OnInvAddTest);
+	InputComponent->BindAction("InvPrint", IE_Pressed, this, &ACoreController::OnInvPrint);
 }
 
 void ACoreController::PlayerTick(float DeltaTime)
@@ -91,5 +97,38 @@ void ACoreController::OnToggleRun()
 	if (AHuman* Human = Cast<AHuman>(GetPawn()))
 	{
 		Human->ToggleRunMode();
+	}
+}
+
+// (test) Inventory
+void ACoreController::OnInvAddTest()
+{
+	if (AHuman* H = Cast<AHuman>(GetPawn()))
+	{
+		if (H->Inventory)
+		{
+			H->Inventory->AddItem(TEXT("Potion"), 1);
+		}
+	}
+}
+
+void ACoreController::OnInvPrint()
+{
+	if (!GEngine)
+	{
+		return;
+	}
+	if (AHuman* H = Cast<AHuman>(GetPawn()))
+	{
+		if (!H->Inventory)
+		{
+			return;
+		}
+		FString S = TEXT("[Inventory]\n");
+		for (const FInventoryItem& Item : H->Inventory->GetItems())
+		{
+			S += FString::Printf(TEXT("- %s x%d\n"), *Item.ItemId.ToString(), Item.Quantity);
+		}
+		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Green, S);
 	}
 }

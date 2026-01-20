@@ -29,9 +29,7 @@ public:
 	UInventory();
 
 protected:
-	virtual void BeginPlay() override;
-	
-	UPROPERTY(ReplicatedUsing=OnRepItems)
+	UPROPERTY(ReplicatedUsing=OnRep_Items)
 	TArray<FInventoryItem> Items;
 	
 	UFUNCTION()
