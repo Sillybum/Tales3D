@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c4e033c4-e0fe-4576-8186-735bdda618e8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tales3D.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tales3D.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultGame.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultGame.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Fab/KayKit/Weapon/sword_1handed/M_Sword_Basic.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/KayKit/Weapon/sword_1handed/M_Sword_Basic.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/Inventory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/Inventory.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/Inventory.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/Inventory.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.cpp" afterDir="false" />
@@ -131,7 +131,7 @@
       <workItem from="1768790097039" duration="7615000" />
       <workItem from="1768812394243" duration="7466000" />
       <workItem from="1768873189239" duration="4374000" />
-      <workItem from="1768883893664" duration="3949000" />
+      <workItem from="1768883893664" duration="12463000" />
     </task>
     <servers />
   </component>

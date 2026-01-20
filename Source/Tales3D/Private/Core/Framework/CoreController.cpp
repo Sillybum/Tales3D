@@ -108,7 +108,7 @@ void ACoreController::OnInvAddTest()
 	{
 		if (H->Inventory)
 		{
-			H->Inventory->AddItem(TEXT("Potion"), 1);
+			H->Inventory->AddItemByName(TEXT("Potion"), 1);
 		}
 	}
 }
@@ -125,16 +125,45 @@ void ACoreController::OnInvPrint()
 		{
 			return;
 		}
-		FString S = TEXT("[Inventory]\n");
 		for (const FInventoryItem& Item : H->Inventory->GetItems())
 		{
-			UItemData* Data = H->Inventory->GetItemData(Item.ItemId, true);
-			
-			const FString NameStr = Data ? Data->DisplayName.ToString() : Item.ItemId.ToString();
-			const FString DescStr = Data ? Data->Description.ToString() : TEXT("(No DataAsset)");
-			
-			S += FString::Printf(TEXT("- %s x%d\n  %s\n"), *NameStr, Item.Quantity, *DescStr);
-		}
-		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Green, S);
+			const int32 Qty = Item.Quantity;
+			const FPrimaryAssetId Id = Item.PrimaryId;
+			// (debug) Loading starts..
+			GEngine->AddOnScreenDebugMessage(-1, 1.5f, FColor::Cyan,
+				FString::Printf(TEXT("Loading ItemData... (%s) x%d"),*Id.ToString(), Qty));
+			// loads ItemData async
+			H->Inventory->RequestItemDataAsync(Id, [this, H, Id, Qty](UItemData* Data)
+			{
+				if (!GEngine)
+				{
+					return;
+				}
+				if (!Data)
+				{
+					GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Red,
+						FString::Printf(TEXT("Failed to load ItemData: %s"), *Id.ToString()));
+					return;
+				}
+				
+				GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Green,
+					FString::Printf(TEXT("Loaded: %s x%d\n%s"),
+						*Data->DisplayName.ToString(), Qty, *Data->Description.ToString()));
+				
+				// loads icon async
+				if (H && H->Inventory)
+				{
+					H->Inventory->RequestIconAsync(Data->Icon, [Id](UTexture2D* Tex)
+					{
+						if (GEngine)
+						{
+							const FString TexName = Tex ? Tex->GetName() : TEXT("(null)");
+							GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow,
+								FString::Printf(TEXT("Icon loaded for %s: %s"), *Id.ToString(), *TexName));
+						}
+					});
+				}
+			});
+		}	
 	}
 }

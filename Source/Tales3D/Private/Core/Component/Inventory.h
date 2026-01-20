@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Engine/AssetManagerTypes.h"
 #include "Inventory.generated.h"
 
 class UItemData;
@@ -15,7 +16,7 @@ struct FInventoryItem
 	GENERATED_BODY()
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName ItemId = NAME_None;
+	FPrimaryAssetId PrimaryId;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	int32 Quantity = 0;
 };
@@ -41,12 +42,12 @@ protected:
 	UFUNCTION(Server, Reliable)
 	void ServerAddItem(FName ItemId, int32 Amount);
 	UFUNCTION(Server, Reliable)
-	void ServerRemoveItem(FName ItemId, int32 Amount);
+	void ServerRemoveItem(FPrimaryAssetId PrimaryId, int32 Amount);
 	
 	virtual void GetLifetimeReplicatedProps(TArray<class FLifetimeProperty>& OutLifetimeProps) const override;
 	
 private:
-	int32 FindIndex(FName ItemId) const;
+	int32 FindIndex(FPrimaryAssetId PrimaryId) const;
 
 public:	
 	// Item List(Read)
@@ -54,16 +55,20 @@ public:
 	const TArray<FInventoryItem>& GetItems() const { return Items; }
 	// Item Add/Remove
 	UFUNCTION(BlueprintCallable, Category="Inventory")
-	void AddItem(FName ItemId, int32 Amount); 
+	void AddItemByName(FName ItemName, int32 Amount); 
 	UFUNCTION(BlueprintCallable, Category="Inventory")
-	bool RemoveItem(FName ItemId, int32 Amount);
+	void AddItemByPrimaryId(FPrimaryAssetId PrimaryId, int32 Amount);
+	UFUNCTION(BlueprintCallable, Category="Inventory")
+	bool RemoveItem(FPrimaryAssetId PrimaryId, int32 Amount);
 	UFUNCTION(BlueprintPure, Category="Inventory")
-	int32 GetQuantity(FName ItemId) const;
+	int32 GetQuantityByPrimaryId(FPrimaryAssetId PrimaryId) const;
 	// For UI Binding
 	UPROPERTY(BlueprintAssignable, Category="Inventory")
 	FOnInventoryChanged OnInventoryChanged;
 	
-	// Reads Item Data
-	UFUNCTION(BlueprintPure, Category="Inventory|Data")
-	UItemData* GetItemData(FName ItemId, bool bLoadSync = true) const;
+	// async load
+	void RequestItemDataAsync(FPrimaryAssetId PrimaryId, TFunction<void(class UItemData* Data)> OnLoaded);
+	void RequestIconAsync(TSoftObjectPtr<class UTexture2D> Icon, TFunction<void(UTexture2D* Tex)> OnLoaded);
+	
+	
 };
