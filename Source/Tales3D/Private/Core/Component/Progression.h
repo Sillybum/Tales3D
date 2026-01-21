@@ -52,6 +52,8 @@ struct FStatusViewData
 
 // Refreshs widget
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnProgressionChanged);
+// LevelUp Event
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnLevelUp, int32, NewLevel);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class UProgression : public UActorComponent
@@ -114,6 +116,9 @@ public:
 	// UI Refresh Signal
 	UPROPERTY(BlueprintAssignable, Category="Progression")
 	FOnProgressionChanged OnProgressionChanged;
+	// LevelUp Event
+	UPROPERTY(BlueprintAssignable, Category="Progression")
+	FOnLevelUp OnLevelUp;
 	
 private:
 	int32 FindConfigIndex(EStatusType Type) const;

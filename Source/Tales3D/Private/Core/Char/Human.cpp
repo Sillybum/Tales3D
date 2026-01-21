@@ -9,6 +9,7 @@
 // Custom
 #include "Core/Component/Inventory.h"
 #include "Core/Component/Progression.h"
+#include "Core/Component/Vital.h"
 
 AHuman::AHuman()
 {
@@ -50,6 +51,8 @@ AHuman::AHuman()
 	Inventory = CreateDefaultSubobject<UInventory>(TEXT("Inventory"));
 	// Level & Status
 	Progression = CreateDefaultSubobject<UProgression>(TEXT("Progression"));
+	// HP & MP & SP
+	Vital = CreateDefaultSubobject<UVital>(TEXT("Vital"));
 }
 
 void AHuman::BeginPlay()

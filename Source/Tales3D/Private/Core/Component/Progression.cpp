@@ -108,6 +108,8 @@ void UProgression::LevelUp()
 	Level += 1;
 	UnspentPoints += PointsPerLevelUp;
 	
+	// Broadcasting
+	OnLevelUp.Broadcast(Level);
 	OnProgressionChanged.Broadcast();
 }
 
@@ -168,3 +170,4 @@ void UProgression::ServerTryIncreaseStatus_Implementation(EStatusType Type)
 {
 	TryIncreaseStatus(Type);
 }
+

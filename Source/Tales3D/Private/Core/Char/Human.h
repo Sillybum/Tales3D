@@ -11,6 +11,7 @@ class USpringArmComponent;
 // Custom Components
 class UInventory;
 class UProgression;
+class UVital;
 
 UCLASS()
 class AHuman : public ACharacter
@@ -56,6 +57,9 @@ public:
 	// Level & Status
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Progression")
 	TObjectPtr<UProgression> Progression;
+	// HP & MP & SP
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Vital")
+	TObjectPtr<UVital> Vital;
 	
 private:
 	void ApplyMoveSpeed();

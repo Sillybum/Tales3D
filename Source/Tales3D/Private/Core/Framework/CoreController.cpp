@@ -8,6 +8,7 @@
 #include "Core/Char/Human.h"
 #include "Core/Component/Inventory.h"
 #include "Core/Component/Progression.h"
+#include "Core/Component/Vital.h"
 #include "Core/Data/ItemData.h"
 
 void ACoreController::BeginPlay()
@@ -269,6 +270,22 @@ void ACoreController::PrintProgression()
 			S += FString::Printf(TEXT("- %s: %d (Cost: %d)\n"),
 				*V.DisplayName.ToString(), V.Value, V.CostPerIncrease);
 		}
+		if (AHuman* H = Cast<AHuman>(GetPawn()))
+		{
+			if (H->Vital)
+			{
+				const auto List = H->Vital->GetAllResourceViewData();
+				S += TEXT("\n[Vitals]\n");
+				for (const FResourceViewData& R : List)
+				{
+					S += FString::Printf(TEXT("- %s: %d / %d (+%d Max/Level)\n"),
+						*R.DisplayName.ToString(), R.Current, R.Max, R.MaxIncreasePerLevel);
+				}
+			}
+		}
 		GEngine->AddOnScreenDebugMessage(-1, 2.5f, FColor::Green, S);
 	}
+	// HP & MP & SP
+
+	
 }
