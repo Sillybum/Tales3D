@@ -31,6 +31,17 @@ protected:
 	void OnInvAddTest();
 	void OnInvPrint();
 	
+	// (Test) Progression
+	void OnLevelUpTest();
+	void OnIncreaseStat_STAP();
+	void OnIncreaseStat_HACK();
+	void OnIncreaseStat_INT();
+	void OnIncreaseStat_DEF();
+	void OnIncreaseStat_MR();
+	void OnIncreaseStat_DEX();
+	void OnIncreaseStat_AGI();
+	void PrintProgression();
+	
 private:
 	// 마우스 이동 틱
 	bool bMoveHeld = false;

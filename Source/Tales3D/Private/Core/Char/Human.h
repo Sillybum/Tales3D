@@ -10,6 +10,7 @@ class UCameraComponent;
 class USpringArmComponent;
 // Custom Components
 class UInventory;
+class UProgression;
 
 UCLASS()
 class AHuman : public ACharacter
@@ -48,9 +49,13 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="MoveMode")
 	bool bIsRunning = false;
 	
+	// Custom Components
 	// Inventory
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Inventory")
 	TObjectPtr<UInventory> Inventory;
+	// Level & Status
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Progression")
+	TObjectPtr<UProgression> Progression;
 	
 private:
 	void ApplyMoveSpeed();

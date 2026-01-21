@@ -8,6 +8,7 @@
 #include "GameFramework/SpringArmComponent.h"
 // Custom
 #include "Core/Component/Inventory.h"
+#include "Core/Component/Progression.h"
 
 AHuman::AHuman()
 {
@@ -44,8 +45,11 @@ AHuman::AHuman()
 	TopDownCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("TopDownCamera"));
 	TopDownCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
 	TopDownCamera->bUsePawnControlRotation = false;
+	// Custom Components
 	// Inventory
 	Inventory = CreateDefaultSubobject<UInventory>(TEXT("Inventory"));
+	// Level & Status
+	Progression = CreateDefaultSubobject<UProgression>(TEXT("Progression"));
 }
 
 void AHuman::BeginPlay()

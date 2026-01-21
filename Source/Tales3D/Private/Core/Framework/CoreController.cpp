@@ -7,6 +7,7 @@
 // Custom
 #include "Core/Char/Human.h"
 #include "Core/Component/Inventory.h"
+#include "Core/Component/Progression.h"
 #include "Core/Data/ItemData.h"
 
 void ACoreController::BeginPlay()
@@ -31,6 +32,16 @@ void ACoreController::SetupInputComponent()
 	// (test) Inventory
 	InputComponent->BindAction("InvAddTest", IE_Pressed, this, &ACoreController::OnInvAddTest);
 	InputComponent->BindAction("InvPrint", IE_Pressed, this, &ACoreController::OnInvPrint);
+	// (Test) Progression
+	InputComponent->BindKey(EKeys::L, IE_Pressed, this, &ACoreController::OnLevelUpTest);
+
+	InputComponent->BindKey(EKeys::One,   IE_Pressed, this, &ACoreController::OnIncreaseStat_STAP);
+	InputComponent->BindKey(EKeys::Two,   IE_Pressed, this, &ACoreController::OnIncreaseStat_HACK);
+	InputComponent->BindKey(EKeys::Three, IE_Pressed, this, &ACoreController::OnIncreaseStat_INT);
+	InputComponent->BindKey(EKeys::Four,  IE_Pressed, this, &ACoreController::OnIncreaseStat_DEF);
+	InputComponent->BindKey(EKeys::Five,  IE_Pressed, this, &ACoreController::OnIncreaseStat_MR);
+	InputComponent->BindKey(EKeys::Six,   IE_Pressed, this, &ACoreController::OnIncreaseStat_DEX);
+	InputComponent->BindKey(EKeys::Seven, IE_Pressed, this, &ACoreController::OnIncreaseStat_AGI);
 }
 
 void ACoreController::PlayerTick(float DeltaTime)
@@ -165,5 +176,99 @@ void ACoreController::OnInvPrint()
 				}
 			});
 		}	
+	}
+}
+
+// (Test) Progression
+static UProgression* GetProgression(ACoreController* PC)
+{
+	if (AHuman* H = Cast<AHuman>(PC->GetPawn()))
+	{
+		return H->Progression;
+	}
+	return nullptr;
+}
+
+void ACoreController::OnLevelUpTest()
+{
+	if (UProgression* P = GetProgression(this))
+	{
+		P->LevelUp();
+		PrintProgression();
+	}
+}
+
+void ACoreController::OnIncreaseStat_STAP()
+{
+	if (auto* P = GetProgression(this))
+	{
+		P->TryIncreaseStatus(EStatusType::STAP);
+		PrintProgression();
+	}
+}void ACoreController::OnIncreaseStat_HACK()
+{
+	if (auto* P = GetProgression(this))
+	{
+		P->TryIncreaseStatus(EStatusType::HACK);
+		PrintProgression();
+	}
+}
+void ACoreController::OnIncreaseStat_INT()
+{
+	if (auto* P = GetProgression(this))
+	{
+		P->TryIncreaseStatus(EStatusType::INT);
+		PrintProgression();
+	}
+}void ACoreController::OnIncreaseStat_DEF()
+{
+	if (auto* P = GetProgression(this))
+	{
+		P->TryIncreaseStatus(EStatusType::DEF);
+		PrintProgression();
+	}
+}void ACoreController::OnIncreaseStat_MR()
+{
+	if (auto* P = GetProgression(this))
+	{
+		P->TryIncreaseStatus(EStatusType::MR);
+		PrintProgression();
+	}
+}void ACoreController::OnIncreaseStat_DEX()
+{
+	if (auto* P = GetProgression(this))
+	{
+		P->TryIncreaseStatus(EStatusType::DEX);
+		PrintProgression();
+	}
+}
+void ACoreController::OnIncreaseStat_AGI()
+{
+	if (auto* P = GetProgression(this))
+	{
+		P->TryIncreaseStatus(EStatusType::AGI);
+		PrintProgression();
+	}
+}
+
+void ACoreController::PrintProgression()
+{
+	if (!GEngine)
+	{
+		return;
+	}
+	
+	if (UProgression* P = GetProgression(this))
+	{
+		FString S = FString::Printf(TEXT("Level: %d | Unspent: %d | +%d/Level\n"),
+			P->GetLevel(), P->GetUnspentPoints(), P->GetPointsPerLevelUp());
+		
+		const TArray<FStatusViewData> Status = P->GetAllStatusViewData();
+		for (const FStatusViewData& V : Status)
+		{
+			S += FString::Printf(TEXT("- %s: %d (Cost: %d)\n"),
+				*V.DisplayName.ToString(), V.Value, V.CostPerIncrease);
+		}
+		GEngine->AddOnScreenDebugMessage(-1, 2.5f, FColor::Green, S);
 	}
 }
