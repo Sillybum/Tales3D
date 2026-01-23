@@ -82,6 +82,30 @@ int32 UInventory::GetQuantityByPrimaryId(FPrimaryAssetId PrimaryId) const
 	return (Idx != INDEX_NONE) ? Items[Idx].Quantity : 0;
 }
 
+// Sync
+UItemData* UInventory::GetItemDataSync(FPrimaryAssetId PrimaryId) const
+{
+	if (!PrimaryId.IsValid())
+	{
+		return nullptr;
+	}
+	
+	UAssetManager& AM = UAssetManager::Get();
+	
+	if (UObject* Obj = AM.GetPrimaryAssetObject(PrimaryId))
+	{
+		return Cast<UItemData>(Obj);
+	}
+	
+	const FSoftObjectPath Path = AM.GetPrimaryAssetPath(PrimaryId);
+	if (!Path.IsValid())
+	{
+		return nullptr;
+	}
+	
+	return Cast<UItemData>(Path.TryLoad());
+}
+
 void UInventory::RequestItemDataAsync(FPrimaryAssetId PrimaryId, TFunction<void(class UItemData* Data)> OnLoaded)
 {
 	if (!PrimaryId.IsValid())

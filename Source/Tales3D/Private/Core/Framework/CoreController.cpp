@@ -208,6 +208,7 @@ void ACoreController::OnLevelUpTest()
 	}
 }
 
+// Debugging message function erased
 void ACoreController::OnIncreaseStat_STAP()
 {
 	if (auto* P = GetProgression(this))

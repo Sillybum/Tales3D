@@ -66,6 +66,10 @@ public:
 	UPROPERTY(BlueprintAssignable, Category="Inventory")
 	FOnInventoryChanged OnInventoryChanged;
 	
+	// Inventory load Sync 
+	UFUNCTION(BlueprintCallable, Category="Inventory|Data")
+	UItemData* GetItemDataSync(FPrimaryAssetId PrimaryId) const;
+	
 	// async load
 	void RequestItemDataAsync(FPrimaryAssetId PrimaryId, TFunction<void(class UItemData* Data)> OnLoaded);
 	void RequestIconAsync(TSoftObjectPtr<class UTexture2D> Icon, TFunction<void(UTexture2D* Tex)> OnLoaded);
