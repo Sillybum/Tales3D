@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c4e033c4-e0fe-4576-8186-735bdda618e8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tales3D.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tales3D.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Char/Human.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Char/Human.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Char/Human.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Char/Human.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/Progression.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/Progression.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/Progression.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/Progression.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Tales3D.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Tales3D.Build.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,18 +36,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "Uproject.Tales3D.executor": "Debug",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Uproject.Tales3D.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Tales3D" type="Uproject" factoryName="rider.uproject">
       <configuration_1 setup="1">
@@ -138,7 +136,8 @@
       <workItem from="1768812394243" duration="7466000" />
       <workItem from="1768873189239" duration="4374000" />
       <workItem from="1768883893664" duration="12463000" />
-      <workItem from="1768957507906" duration="27794000" />
+      <workItem from="1768957507906" duration="28538000" />
+      <workItem from="1769128418267" duration="1382000" />
     </task>
     <servers />
   </component>

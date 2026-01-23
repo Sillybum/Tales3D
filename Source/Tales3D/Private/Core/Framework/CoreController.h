@@ -6,6 +6,7 @@
 #include "GameFramework/PlayerController.h"
 #include "CoreController.generated.h"
 
+class UUserWidget;
 /**
  * 
  */
@@ -41,6 +42,16 @@ protected:
 	void OnIncreaseStat_DEX();
 	void OnIncreaseStat_AGI();
 	void PrintProgression();
+	
+protected:
+	// UI
+	// For assigning Widget on editor
+	UPROPERTY(EditDefaultsOnly, Category="UI")
+	TSubclassOf<UUserWidget> HUDWidgetClass;
+	// Created Instance
+	UPROPERTY()
+	TObjectPtr<UUserWidget> HUDWidget;
+	
 	
 private:
 	// 마우스 이동 틱

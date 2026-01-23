@@ -5,6 +5,7 @@
 
 #include "Blueprint/AIBlueprintHelperLibrary.h"
 // Custom
+#include "Blueprint/UserWidget.h"
 #include "Core/Char/Human.h"
 #include "Core/Component/Inventory.h"
 #include "Core/Component/Progression.h"
@@ -19,6 +20,15 @@ void ACoreController::BeginPlay()
 	bShowMouseCursor		= true;
 	bEnableClickEvents		= true;
 	bEnableMouseOverEvents	= true;
+	
+	if (HUDWidgetClass)
+	{
+		HUDWidget = CreateWidget<UUserWidget>(this, HUDWidgetClass);
+		if (HUDWidget)
+		{
+			HUDWidget->AddToViewport();
+		}
+	}
 }
 
 void ACoreController::SetupInputComponent()
