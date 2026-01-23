@@ -7,6 +7,18 @@
 
 const FName UItemData::AssetTypeName(TEXT("Item"));
 
+void UItemData::GetDetailLines_Implementation(TArray<FText>& OutLines) const
+{
+	if (!DisplayName.IsEmpty())
+	{
+		OutLines.Add(DisplayName);
+	}
+	if (!Description.IsEmpty())
+	{
+		OutLines.Add(Description);
+	}
+}
+
 FPrimaryAssetId UItemData::GetPrimaryAssetId() const
 {
 	if (!ItemId.IsNone())

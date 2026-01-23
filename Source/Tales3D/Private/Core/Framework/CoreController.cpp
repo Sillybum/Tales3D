@@ -42,6 +42,8 @@ void ACoreController::SetupInputComponent()
 	
 	// (test) Inventory
 	InputComponent->BindAction("InvAddTest", IE_Pressed, this, &ACoreController::OnInvAddTest);
+	InputComponent->BindAction("InvAddTest2", IE_Pressed, this, &ACoreController::OnInvAddTest2);
+	
 
 	// (Test) Progression
 	InputComponent->BindKey(EKeys::L, IE_Pressed, this, &ACoreController::OnLevelUpTest);
@@ -131,6 +133,17 @@ void ACoreController::OnInvAddTest()
 		if (H->Inventory)
 		{
 			H->Inventory->AddItemByName(TEXT("Potion"), 1);
+		}
+	}
+}
+
+void ACoreController::OnInvAddTest2()
+{
+	if (AHuman* H = Cast<AHuman>(GetPawn()))
+	{
+		if (H->Inventory)
+		{
+			H->Inventory->AddItemByName(TEXT("SteelShade"), 1);
 		}
 	}
 }

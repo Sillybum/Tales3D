@@ -30,5 +30,10 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Item")
 	TSoftObjectPtr<UTexture2D> Icon;
 	
+	// UI: Item itself can show its info
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category="Item|UI")
+	void GetDetailLines(TArray<FText>& OutLines) const;
+	virtual void GetDetailLines_Implementation(TArray<FText>& OutLines) const;
+	
 	virtual FPrimaryAssetId GetPrimaryAssetId() const override;
 };

@@ -30,6 +30,7 @@ protected:
 	
 	// (Test) Inventory
 	void OnInvAddTest();
+	void OnInvAddTest2();
 	
 	// (Test) Progression
 	void OnLevelUpTest();

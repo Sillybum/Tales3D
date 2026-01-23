@@ -4,7 +4,15 @@
     <projectFile>Tales3D.uproject</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4e033c4-e0fe-4576-8186-735bdda618e8" name="Changes" comment="" />
+    <list default="true" id="c4e033c4-e0fe-4576-8186-735bdda618e8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/_Core/UI/Part/WBP_InvEntry.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/UI/Part/WBP_InvEntry.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/_Core/UI/Part/WBP_Inventory.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/UI/Part/WBP_Inventory.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Data/ItemData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Data/ItemData.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Data/ItemData.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Data/ItemData.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.h" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,10 +37,12 @@
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/CoreUObject/Private/VerseVM/VVMContentScope.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Engine/Classes/Engine/LevelStreaming.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Experimental/JsonObjectGraph/Private/PrettyJsonWriter.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/NavigationSystem/Public/NavMesh/RecastNavMesh.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Net/Iris/Private/Iris/ReplicationSystem/NetRefHandleManager.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/OpenGLDrv/Private/OpenGLShaders.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/RHI/Private/PipelineStateCache.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Renderer/Private/PostProcess/ACESUtils.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Renderer/Private/VirtualShadowMaps/VirtualShadowMapCacheManager.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Tales3D/Private/Core/Data/ItemData.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreGameMode.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreGameMode.h" root0="FORCE_HIGHLIGHTING" />
@@ -148,6 +158,7 @@
       <workItem from="1768883893664" duration="12463000" />
       <workItem from="1768957507906" duration="28538000" />
       <workItem from="1769128418267" duration="3134000" />
+      <workItem from="1769146607379" duration="10224000" />
     </task>
     <servers />
   </component>
