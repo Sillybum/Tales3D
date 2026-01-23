@@ -73,7 +73,6 @@ void AHuman::ToggleRunMode()
 {
 	bIsRunning = !bIsRunning;
 	ApplyMoveSpeed();
-	UE_LOG(LogTemp, Warning, TEXT("Run/Walk toggled"));
 }
 
 void AHuman::SetRunMode(bool bRun)

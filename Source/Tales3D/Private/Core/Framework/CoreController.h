@@ -41,7 +41,6 @@ protected:
 	void OnIncreaseStat_MR();
 	void OnIncreaseStat_DEX();
 	void OnIncreaseStat_AGI();
-	void PrintProgression();
 	
 protected:
 	// UI

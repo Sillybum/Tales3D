@@ -205,7 +205,6 @@ void ACoreController::OnLevelUpTest()
 	if (UProgression* P = GetProgression(this))
 	{
 		P->LevelUp();
-		PrintProgression();
 	}
 }
 
@@ -214,14 +213,12 @@ void ACoreController::OnIncreaseStat_STAP()
 	if (auto* P = GetProgression(this))
 	{
 		P->TryIncreaseStatus(EStatusType::STAP);
-		PrintProgression();
 	}
 }void ACoreController::OnIncreaseStat_HACK()
 {
 	if (auto* P = GetProgression(this))
 	{
 		P->TryIncreaseStatus(EStatusType::HACK);
-		PrintProgression();
 	}
 }
 void ACoreController::OnIncreaseStat_INT()
@@ -229,28 +226,24 @@ void ACoreController::OnIncreaseStat_INT()
 	if (auto* P = GetProgression(this))
 	{
 		P->TryIncreaseStatus(EStatusType::INT);
-		PrintProgression();
 	}
 }void ACoreController::OnIncreaseStat_DEF()
 {
 	if (auto* P = GetProgression(this))
 	{
 		P->TryIncreaseStatus(EStatusType::DEF);
-		PrintProgression();
 	}
 }void ACoreController::OnIncreaseStat_MR()
 {
 	if (auto* P = GetProgression(this))
 	{
 		P->TryIncreaseStatus(EStatusType::MR);
-		PrintProgression();
 	}
 }void ACoreController::OnIncreaseStat_DEX()
 {
 	if (auto* P = GetProgression(this))
 	{
 		P->TryIncreaseStatus(EStatusType::DEX);
-		PrintProgression();
 	}
 }
 void ACoreController::OnIncreaseStat_AGI()
@@ -258,44 +251,5 @@ void ACoreController::OnIncreaseStat_AGI()
 	if (auto* P = GetProgression(this))
 	{
 		P->TryIncreaseStatus(EStatusType::AGI);
-		PrintProgression();
 	}
-}
-
-void ACoreController::PrintProgression()
-{
-	if (!GEngine)
-	{
-		return;
-	}
-	
-	if (UProgression* P = GetProgression(this))
-	{
-		FString S = FString::Printf(TEXT("Level: %d | Unspent: %d | +%d/Level\n"),
-			P->GetLevel(), P->GetUnspentPoints(), P->GetPointsPerLevelUp());
-		
-		const TArray<FStatusViewData> Status = P->GetAllStatusViewData();
-		for (const FStatusViewData& V : Status)
-		{
-			S += FString::Printf(TEXT("- %s: %d (Cost: %d)\n"),
-				*V.DisplayName.ToString(), V.Value, V.CostPerIncrease);
-		}
-		if (AHuman* H = Cast<AHuman>(GetPawn()))
-		{
-			if (H->Vital)
-			{
-				const auto List = H->Vital->GetAllResourceViewData();
-				S += TEXT("\n[Vitals]\n");
-				for (const FResourceViewData& R : List)
-				{
-					S += FString::Printf(TEXT("- %s: %d / %d (+%d Max/Level)\n"),
-						*R.DisplayName.ToString(), R.Current, R.Max, R.MaxIncreasePerLevel);
-				}
-			}
-		}
-		GEngine->AddOnScreenDebugMessage(-1, 2.5f, FColor::Green, S);
-	}
-	// HP & MP & SP
-
-	
 }
