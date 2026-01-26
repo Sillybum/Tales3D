@@ -48,7 +48,7 @@ void ACoreController::SetupInputComponent()
 	// (Test) Progression
 	InputComponent->BindKey(EKeys::L, IE_Pressed, this, &ACoreController::OnLevelUpTest);
 
-	InputComponent->BindKey(EKeys::One,   IE_Pressed, this, &ACoreController::OnIncreaseStat_STAP);
+	InputComponent->BindKey(EKeys::One,   IE_Pressed, this, &ACoreController::OnIncreaseStat_STAB);
 	InputComponent->BindKey(EKeys::Two,   IE_Pressed, this, &ACoreController::OnIncreaseStat_HACK);
 	InputComponent->BindKey(EKeys::Three, IE_Pressed, this, &ACoreController::OnIncreaseStat_INT);
 	InputComponent->BindKey(EKeys::Four,  IE_Pressed, this, &ACoreController::OnIncreaseStat_DEF);
@@ -167,11 +167,11 @@ void ACoreController::OnLevelUpTest()
 }
 
 // Debugging message function erased
-void ACoreController::OnIncreaseStat_STAP()
+void ACoreController::OnIncreaseStat_STAB()
 {
 	if (auto* P = GetProgression(this))
 	{
-		P->TryIncreaseStatus(EStatusType::STAP);
+		P->TryIncreaseStatus(EStatusType::STAB);
 	}
 }void ACoreController::OnIncreaseStat_HACK()
 {

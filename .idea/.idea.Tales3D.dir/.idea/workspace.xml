@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4e033c4-e0fe-4576-8186-735bdda618e8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/_Core/UI/Part/WBP_InvEntry.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/UI/Part/WBP_InvEntry.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/_Core/UI/Part/WBP_Inventory.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/UI/Part/WBP_Inventory.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Data/ItemData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Data/ItemData.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Data/ItemData.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Data/ItemData.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/Progression.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/Progression.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/Progression.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/Progression.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.h" afterDir="false" />
     </list>
@@ -25,6 +22,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Plugins/Experimental/EditorDataStorageFeatures/Source/TedsAssetData/Private/Widgets/AssetPreview/STedsAssetPreviewWidget.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Plugins/Online/OnlineServices/Source/OnlineServicesCommon/Public/Online/OnlineIdCommon.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Plugins/Online/OnlineSubsystem/Source/Public/Interfaces/OnlineEventsInterface.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Plugins/VirtualProduction/CaptureManager/CaptureManagerDevices/Source/CPSLiveLinkDevice/Private/Customizations/ToggleConnectActionCustomization.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -159,6 +157,7 @@
       <workItem from="1768957507906" duration="28538000" />
       <workItem from="1769128418267" duration="3134000" />
       <workItem from="1769146607379" duration="10224000" />
+      <workItem from="1769387626841" duration="1591000" />
     </task>
     <servers />
   </component>

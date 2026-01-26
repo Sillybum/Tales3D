@@ -34,7 +34,7 @@ protected:
 	
 	// (Test) Progression
 	void OnLevelUpTest();
-	void OnIncreaseStat_STAP();
+	void OnIncreaseStat_STAB();
 	void OnIncreaseStat_HACK();
 	void OnIncreaseStat_INT();
 	void OnIncreaseStat_DEF();

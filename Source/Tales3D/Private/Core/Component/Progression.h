@@ -10,7 +10,7 @@
 UENUM(BlueprintType)
 enum class EStatusType : uint8
 {
-	STAP	UMETA(DisplayName="STAP"),
+	STAB	UMETA(DisplayName="STAB"),
 	HACK	UMETA(DisplayName="HACK"),
 	INT		UMETA(DisplayName="INT"),
 	DEF		UMETA(DisplayName="DEF"),
@@ -25,7 +25,7 @@ struct FStatusConfig
 	GENERATED_BODY()
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	EStatusType Type = EStatusType::STAP;
+	EStatusType Type = EStatusType::STAB;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	FText DisplayName;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
@@ -41,7 +41,7 @@ struct FStatusViewData
 	GENERATED_BODY()
 	
 	UPROPERTY(BlueprintReadOnly)
-	EStatusType Type = EStatusType::STAP;
+	EStatusType Type = EStatusType::STAB;
 	UPROPERTY(BlueprintReadOnly)
 	FText DisplayName;
 	UPROPERTY(BlueprintReadOnly)

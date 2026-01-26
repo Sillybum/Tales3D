@@ -14,7 +14,7 @@ UProgression::UProgression()
 	
 	// Default Status Values
 	StatusConfigs = {
-		 {EStatusType::STAP, FText::FromString(TEXT("STAP")), 2, 2},
+		 {EStatusType::STAB, FText::FromString(TEXT("STAB")), 2, 2},
 		 {EStatusType::HACK, FText::FromString(TEXT("HACK")), 4, 1},
 		 {EStatusType::INT, FText::FromString(TEXT("INT")), 1, 3},
 		 {EStatusType::DEF, FText::FromString(TEXT("DEF")), 2, 2},
