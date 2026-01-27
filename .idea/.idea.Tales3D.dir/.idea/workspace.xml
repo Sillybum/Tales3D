@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4e033c4-e0fe-4576-8186-735bdda618e8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/Progression.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/Progression.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/Progression.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/Progression.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tales3D.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tales3D.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/_Core/Char/Shared/Human/Mesh/Skeletal_Mesh/SK_Human.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/Char/Shared/Human/Mesh/Skeletal_Mesh/SK_Human.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/_Core/Char/Shared/Human/Mesh/Skeleton/SKEL_Human.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/Char/Shared/Human/Mesh/Skeleton/SKEL_Human.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/_Core/Data/Item/DA_SteelShade.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/Data/Item/DA_SteelShade.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/_Core/Framework/BP_CoreController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/Framework/BP_CoreController.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/_Core/UI/Part/WBP_Inventory.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/UI/Part/WBP_Inventory.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Char/Human.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Char/Human.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Char/Human.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Char/Human.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Data/ItemData.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Data/ItemData.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Data/WeaponItemData.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Data/WeaponItemData.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.h" afterDir="false" />
     </list>
@@ -22,6 +30,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="cidr-memory-view://4" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Plugins/Experimental/EditorDataStorageFeatures/Source/TedsAssetData/Private/Widgets/AssetPreview/STedsAssetPreviewWidget.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Plugins/Online/OnlineServices/Source/OnlineServicesCommon/Public/Online/OnlineIdCommon.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Plugins/Online/OnlineSubsystem/Source/Public/Interfaces/OnlineEventsInterface.h" root0="SKIP_HIGHLIGHTING" />
@@ -32,7 +41,14 @@
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Editor/UnrealEd/Private/WorldPartition/WorldPartitionHLODsBuilder.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/AVEncoder/Public/VideoDecoder.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/AppFramework/Public/Widgets/Workflow/SWizard.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/CoreUObject/Internal/UObject/PropertyBagRepository.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/CoreUObject/Private/VerseVM/VVMContentScope.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/CoreUObject/Public/UObject/ObjectHandle.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/CoreUObject/Public/UObject/ObjectHandleTracking.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/CoreUObject/Public/UObject/ObjectPtr.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/CoreUObject/Public/UObject/PrimaryAssetId.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Engine/Classes/Components/ActorComponent.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Engine/Classes/Engine/EngineTypes.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Engine/Classes/Engine/LevelStreaming.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Experimental/JsonObjectGraph/Private/PrettyJsonWriter.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/NavigationSystem/Public/NavMesh/RecastNavMesh.h" root0="FORCE_HIGHLIGHTING" />
@@ -41,6 +57,8 @@
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/RHI/Private/PipelineStateCache.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Renderer/Private/PostProcess/ACESUtils.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Renderer/Private/VirtualShadowMaps/VirtualShadowMapCacheManager.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/Equipment.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/Equipment.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Tales3D/Private/Core/Data/ItemData.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreGameMode.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreGameMode.h" root0="FORCE_HIGHLIGHTING" />
@@ -54,18 +72,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;Uproject.Tales3D.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Uproject.Tales3D.executor": "Run",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Tales3D" type="Uproject" factoryName="rider.uproject">
       <configuration_1 setup="1">
@@ -158,6 +176,7 @@
       <workItem from="1769128418267" duration="3134000" />
       <workItem from="1769146607379" duration="10224000" />
       <workItem from="1769387626841" duration="1591000" />
+      <workItem from="1769482697811" duration="18619000" />
     </task>
     <servers />
   </component>

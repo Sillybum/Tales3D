@@ -12,7 +12,6 @@ enum class EPlayableCharacter : uint8
 	Maximin		UMETA(DisplayName="막시민 리프크네"),
 	Boris		UMETA(DisplayName="보리스 진네만"),
 };
-
 /**
  * 
  */
@@ -61,6 +60,14 @@ public:
 	int32 RequiredStab = 13;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Requirement")
 	int32 RequiredHack = 27;
+	
+	// For actual equipping
+	// Which actor(Weapon) to equip
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Visual")
+	TSoftClassPtr<AActor> EquippedActorClass;
+	// Which socket to use to equip(Skeletal socket name)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Visual")
+	FName AttachSocketName = TEXT("weapon_r");
 	
 	// Overrides parent's function
 	virtual void GetDetailLines_Implementation(TArray<FText>& OutLines) const override;

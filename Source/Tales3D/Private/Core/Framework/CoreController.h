@@ -42,6 +42,9 @@ protected:
 	void OnIncreaseStat_DEX();
 	void OnIncreaseStat_AGI();
 	
+	// (Test) Equipment
+	void OnEquipSteelShadeTest();
+	
 protected:
 	// UI
 	// For assigning Widget on editor

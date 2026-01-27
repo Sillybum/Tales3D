@@ -3,15 +3,19 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Core/Data/WeaponItemData.h"
 #include "GameFramework/Character.h"
 #include "Human.generated.h"
+// #include "Core/Data/ItemData.h"
 
+enum class EPlayableCharacter : uint8;
 class UCameraComponent;
 class USpringArmComponent;
 // Custom Components
 class UInventory;
 class UProgression;
 class UVital;
+class UEquipment;
 
 UCLASS()
 class AHuman : public ACharacter
@@ -60,7 +64,12 @@ public:
 	// HP & MP & SP
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Vital")
 	TObjectPtr<UVital> Vital;
-	
+	// Equipment
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Equipment")
+	TObjectPtr<UEquipment> Equipment;
+	// Character Type for Equipment
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Character")
+	EPlayableCharacter CharacterType = EPlayableCharacter::Maximin;
 private:
 	void ApplyMoveSpeed();
 };

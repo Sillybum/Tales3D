@@ -7,6 +7,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 // Custom
+#include "Core/Component/Equipment.h"
 #include "Core/Component/Inventory.h"
 #include "Core/Component/Progression.h"
 #include "Core/Component/Vital.h"
@@ -53,6 +54,8 @@ AHuman::AHuman()
 	Progression = CreateDefaultSubobject<UProgression>(TEXT("Progression"));
 	// HP & MP & SP
 	Vital = CreateDefaultSubobject<UVital>(TEXT("Vital"));
+	// Equipment
+	Equipment = CreateDefaultSubobject<UEquipment>(TEXT("Equipment"));
 }
 
 void AHuman::BeginPlay()

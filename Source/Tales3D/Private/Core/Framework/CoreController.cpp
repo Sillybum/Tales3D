@@ -7,6 +7,7 @@
 // Custom
 #include "Blueprint/UserWidget.h"
 #include "Core/Char/Human.h"
+#include "Core/Component/Equipment.h"
 #include "Core/Component/Inventory.h"
 #include "Core/Component/Progression.h"
 #include "Core/Component/Vital.h"
@@ -55,6 +56,7 @@ void ACoreController::SetupInputComponent()
 	InputComponent->BindKey(EKeys::Five,  IE_Pressed, this, &ACoreController::OnIncreaseStat_MR);
 	InputComponent->BindKey(EKeys::Six,   IE_Pressed, this, &ACoreController::OnIncreaseStat_DEX);
 	InputComponent->BindKey(EKeys::Seven, IE_Pressed, this, &ACoreController::OnIncreaseStat_AGI);
+	InputComponent->BindKey(EKeys::E, IE_Pressed, this, &ACoreController::OnEquipSteelShadeTest);
 }
 
 void ACoreController::PlayerTick(float DeltaTime)
@@ -211,4 +213,16 @@ void ACoreController::OnIncreaseStat_AGI()
 	{
 		P->TryIncreaseStatus(EStatusType::AGI);
 	}
+}
+
+void ACoreController::OnEquipSteelShadeTest()
+{
+	AHuman* H = Cast<AHuman>(GetPawn());
+	if (!H || !H->Equipment)
+	{
+		return;
+	}
+	const FPrimaryAssetId SteelShadeId(UItemData::AssetTypeName, FName(TEXT("SteelShade")));
+	
+	H->Equipment->EquipWeaponByPrimaryId(SteelShadeId);
 }

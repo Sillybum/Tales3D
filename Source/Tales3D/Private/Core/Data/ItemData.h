@@ -11,6 +11,10 @@
  * ItemId = FName
  * Primary Asset ID ex) Item:Potion
  */
+
+
+
+
 UCLASS(BlueprintType)
 class UItemData : public UPrimaryDataAsset
 {
