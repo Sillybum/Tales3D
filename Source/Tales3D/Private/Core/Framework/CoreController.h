@@ -7,6 +7,7 @@
 #include "CoreController.generated.h"
 
 class UUserWidget;
+class AEnemy;
 /**
  * 
  */
@@ -54,6 +55,11 @@ protected:
 	UPROPERTY()
 	TObjectPtr<UUserWidget> HUDWidget;
 	
+	// Enemy Targetting (Shows HP)
+	UPROPERTY()
+	TObjectPtr<AEnemy> SelectedEnemy;
+	
+	void SelectEnemy(AEnemy* NewEnemy);
 	
 private:
 	// 마우스 이동 틱

@@ -6,6 +6,7 @@
 #include "Blueprint/AIBlueprintHelperLibrary.h"
 // Custom
 #include "Blueprint/UserWidget.h"
+#include "Core/Char/Enemy.h"
 #include "Core/Char/Human.h"
 #include "Core/Component/Equipment.h"
 #include "Core/Component/Inventory.h"
@@ -80,6 +81,27 @@ void ACoreController::PlayerTick(float DeltaTime)
 // 커서 아래로 레이캐스팅
 void ACoreController::OnSetDestinationPressed()
 {
+	FHitResult Hit;
+	const bool bHit = GetHitResultUnderCursorByChannel(
+		UEngineTypes::ConvertToTraceType(ECC_Visibility),
+		true,
+		Hit
+		);
+	
+	// 1. Case: Enemy Clicked
+	if (bHit)
+	{
+		if (AEnemy* Enemy = Cast<AEnemy>(Hit.GetActor()))
+		{
+			SelectEnemy(Enemy);
+			// Stops move input
+			bMoveHeld = false;
+			StopMovement();
+			return;
+		}
+	}
+	// 2. Case: Other than enemy Clicked
+	SelectEnemy(nullptr);
 	bMoveHeld = true;
 	// 누르는 순간 한 번 이동 시작
 	UpdateMoveDestination();
@@ -225,4 +247,23 @@ void ACoreController::OnEquipSteelShadeTest()
 	const FPrimaryAssetId SteelShadeId(UItemData::AssetTypeName, FName(TEXT("SteelShade")));
 	
 	H->Equipment->EquipWeaponByPrimaryId(SteelShadeId);
+}
+
+void ACoreController::SelectEnemy(AEnemy* NewEnemy)
+{
+	if (SelectedEnemy == NewEnemy)
+	{
+		return;
+	}
+	if (SelectedEnemy)
+	{
+		SelectedEnemy->SetSelected(false);
+	}
+	
+	SelectedEnemy = NewEnemy;
+	
+	if (SelectedEnemy)
+	{
+		SelectedEnemy->SetSelected(true);
+	}
 }
