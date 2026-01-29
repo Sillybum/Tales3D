@@ -37,4 +37,10 @@ public:
 	void SetMaxAndFill(int32 NewMax);
 	UPROPERTY(BlueprintAssignable, Category="Health")
 	FOnHealthChanged OnHealthChanged;
+	
+	// Combat
+	UFUNCTION(BlueprintCallable, Category="Health")
+	void ApplyDamage(int32 Amount);
+	
+									   
 };

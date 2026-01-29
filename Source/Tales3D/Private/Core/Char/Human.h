@@ -16,6 +16,7 @@ class UInventory;
 class UProgression;
 class UVital;
 class UEquipment;
+class UCombatComponent;
 
 UCLASS()
 class AHuman : public ACharacter
@@ -70,6 +71,9 @@ public:
 	// Character Type for Equipment
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Character")
 	EPlayableCharacter CharacterType = EPlayableCharacter::Maximin;
+	// Attack & Combo
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Combat")
+	TObjectPtr<UCombatComponent> Combat;
 private:
 	void ApplyMoveSpeed();
 };

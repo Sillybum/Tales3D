@@ -6,9 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="c4e033c4-e0fe-4576-8186-735bdda618e8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tales3D.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tales3D.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/_Core/Char/Pipeline/Human/Ispin/BP_Ispin.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/Char/Pipeline/Human/Ispin/BP_Ispin.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/_Core/Char/Shared/Human/Anim/ABP_Human.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/Char/Shared/Human/Anim/ABP_Human.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Char/Human.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Char/Human.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Char/Human.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Char/Human.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/HealthComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/HealthComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/HealthComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/HealthComponent.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tales3D.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/Tales3D.uproject" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +60,7 @@
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Renderer/Private/PostProcess/ACESUtils.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Renderer/Private/VirtualShadowMaps/VirtualShadowMapCacheManager.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Slate/Private/Framework/Docking/TabManager.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/CombatComponent.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/Equipment.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/Equipment.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Tales3D/Private/Core/Data/ItemData.h" root0="FORCE_HIGHLIGHTING" />
@@ -71,18 +77,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;Uproject.Tales3D.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Uproject.Tales3D.executor": "Run",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "settings.editor.selected.configurable": "settings.sync",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Tales3D" type="Uproject" factoryName="rider.uproject">
       <configuration_1 setup="1">
@@ -176,7 +183,8 @@
       <workItem from="1769146607379" duration="10224000" />
       <workItem from="1769387626841" duration="1591000" />
       <workItem from="1769482697811" duration="19225000" />
-      <workItem from="1769563178576" duration="9793000" />
+      <workItem from="1769563178576" duration="10468000" />
+      <workItem from="1769646926769" duration="10339000" />
     </task>
     <servers />
   </component>
@@ -204,5 +212,9 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

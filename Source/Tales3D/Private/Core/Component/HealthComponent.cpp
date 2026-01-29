@@ -34,3 +34,16 @@ void UHealthComponent::SetMaxAndFill(int32 NewMax)
 	Current = Max;
 	OnHealthChanged.Broadcast(Current, Max);
 }
+
+// Combat
+void UHealthComponent::ApplyDamage(int32 Amount)
+{
+	if (!GetOwner() || !GetOwner()->HasAuthority())
+	{
+		return;
+	}
+	const int32 Dmg = FMath::Max(0, Amount);
+	Current = FMath::Clamp(Current - Dmg, 0, Max);
+	
+	OnHealthChanged.Broadcast(Current, Max);
+}
