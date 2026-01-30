@@ -6,9 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="c4e033c4-e0fe-4576-8186-735bdda618e8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tales3D.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tales3D.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/_Core/Char/Pipeline/Human/Ispin/BP_Ispin.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/Char/Pipeline/Human/Ispin/BP_Ispin.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/_Core/Char/Shared/Human/Anim/ABP_Human.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/Char/Shared/Human/Anim/ABP_Human.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/_Core/Framework/BP_CoreGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/Framework/BP_CoreGameMode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/_Core/UI/Part/WBP_EremyHPBar.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/UI/Part/WBP_EremyHPBar.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/_Core/UI/WBP_HUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/UI/WBP_HUD.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Char/Human.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Char/Human.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Char/Human.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Char/Human.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/HealthComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/HealthComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/HealthComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/HealthComponent.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Framework/CoreController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tales3D.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/Tales3D.uproject" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +37,7 @@
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Developer/TraceServices/Private/Analyzers/NetTraceAnalyzer.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Developer/Windows/LiveCoding/Private/External/LC_Commands.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Editor/AnimGraph/Private/EditModes/PoseDriverEditMode.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Editor/Kismet/Private/WatchPointViewer.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Editor/LevelEditor/Private/SLevelViewport.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Editor/MovieSceneTools/Private/MovieSceneSectionDetailsCustomization.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Editor/Persona/Private/PoseWatchManagerElementTreeItem.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -48,6 +57,7 @@
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Engine/Classes/Engine/LevelStreaming.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Engine/Private/HLOD/HLODProxyDesc.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Experimental/JsonObjectGraph/Private/PrettyJsonWriter.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Foliage/Public/FoliageInstanceBase.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/NavigationSystem/Public/NavMesh/RecastNavMesh.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Net/Iris/Private/Iris/ReplicationSystem/NetRefHandleManager.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/OpenGLDrv/Private/OpenGLShaders.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -177,6 +187,9 @@
       <workItem from="1769387626841" duration="1591000" />
       <workItem from="1769482697811" duration="19225000" />
       <workItem from="1769563178576" duration="9793000" />
+      <workItem from="1769735822299" duration="6575000" />
+      <workItem from="1769746769404" duration="2360000" />
+      <workItem from="1769750105988" duration="2319000" />
     </task>
     <servers />
   </component>

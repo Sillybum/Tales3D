@@ -46,6 +46,9 @@ protected:
 	// (Test) Equipment
 	void OnEquipSteelShadeTest();
 	
+	// (Test) Attack
+	void OnBasicAttackPressed();
+	
 protected:
 	// UI
 	// For assigning Widget on editor

@@ -16,6 +16,7 @@ class UInventory;
 class UProgression;
 class UVital;
 class UEquipment;
+class UCombatComponent;
 
 UCLASS()
 class AHuman : public ACharacter
@@ -53,6 +54,9 @@ public:
 	// 애님블루프린트가 읽을 실제 상태
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="MoveMode")
 	bool bIsRunning = false;
+	// Called from UCombatComponent::TryBasicAttack
+	UFUNCTION(BlueprintImplementableEvent, Category="Combat|Anim")
+	void BP_PlayBasicAttack();
 	
 	// Custom Components
 	// Inventory
@@ -70,6 +74,9 @@ public:
 	// Character Type for Equipment
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Character")
 	EPlayableCharacter CharacterType = EPlayableCharacter::Maximin;
+	// Attack & Combo
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Combat")
+	TObjectPtr<UCombatComponent> Combat;
 private:
 	void ApplyMoveSpeed();
 };

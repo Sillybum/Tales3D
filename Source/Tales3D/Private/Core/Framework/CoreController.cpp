@@ -8,6 +8,7 @@
 #include "Blueprint/UserWidget.h"
 #include "Core/Char/Enemy.h"
 #include "Core/Char/Human.h"
+#include "Core/Component/CombatComponent.h"
 #include "Core/Component/Equipment.h"
 #include "Core/Component/Inventory.h"
 #include "Core/Component/Progression.h"
@@ -58,6 +59,7 @@ void ACoreController::SetupInputComponent()
 	InputComponent->BindKey(EKeys::Six,   IE_Pressed, this, &ACoreController::OnIncreaseStat_DEX);
 	InputComponent->BindKey(EKeys::Seven, IE_Pressed, this, &ACoreController::OnIncreaseStat_AGI);
 	InputComponent->BindKey(EKeys::E, IE_Pressed, this, &ACoreController::OnEquipSteelShadeTest);
+	InputComponent->BindKey(EKeys::F, IE_Pressed, this, &ACoreController::OnBasicAttackPressed);
 }
 
 void ACoreController::PlayerTick(float DeltaTime)
@@ -247,6 +249,22 @@ void ACoreController::OnEquipSteelShadeTest()
 	const FPrimaryAssetId SteelShadeId(UItemData::AssetTypeName, FName(TEXT("SteelShade")));
 	
 	H->Equipment->EquipWeaponByPrimaryId(SteelShadeId);
+}
+
+void ACoreController::OnBasicAttackPressed()
+{
+	AHuman* H = Cast<AHuman>(GetPawn());
+	if (!H || !H->Combat)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("onBasicattack can't find"));
+		return;
+	}
+	
+	// if only an enemy selected
+	if (SelectedEnemy)
+	{
+		H->Combat->TryBasicAttack(SelectedEnemy);
+	}
 }
 
 void ACoreController::SelectEnemy(AEnemy* NewEnemy)
