@@ -52,8 +52,8 @@ public:
 	UFUNCTION(BlueprintPure, Category="Combat|Combo")
 	FName GetCurrentComboSection() const;
 	UFUNCTION(BlueprintPure, Category="Combat|Combo")
-	
 	AEnemy* GetCurrentTarget() const { return CurrentTarget; }
+	UPROPERTY(BlueprintAssignable, Category="Combat|UI")
 	FOnCombatStateChanged OnCombatStateChanged;
 	
 protected:
