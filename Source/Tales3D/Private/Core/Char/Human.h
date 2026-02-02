@@ -18,6 +18,7 @@ class UProgression;
 class UVital;
 class UEquipment;
 class UCombatComponent;
+class USkillComponent;
 
 UCLASS()
 class AHuman : public ACharacter
@@ -78,6 +79,18 @@ public:
 	// Attack Input
 	UFUNCTION(BlueprintImplementableEvent, Category="Combat|Input")
 	void BP_OnBasicAttackInput(AEnemy* Target);
+	// -----
+	// Skill
+	// -----
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Skill")
+	TObjectPtr<USkillComponent> Skill;
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category="Skill|Anim")
+	void BP_PlaySkill1();
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category="Skill|VFX")
+	void BP_SpawnSkill1FX1();
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category="Skill|VFX")
+	void BP_SpawnSkill1FX2();
+	
 	
 private:
 	void ApplyMoveSpeed();

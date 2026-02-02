@@ -11,6 +11,7 @@
 #include "Core/Component/Equipment.h"
 #include "Core/Component/Inventory.h"
 #include "Core/Component/Progression.h"
+#include "Core/Component/SkillComponent.h"
 #include "Core/Component/Vital.h"
 
 AHuman::AHuman()
@@ -58,6 +59,8 @@ AHuman::AHuman()
 	// Equipment
 	Equipment = CreateDefaultSubobject<UEquipment>(TEXT("Equipment"));
 	Combat = CreateDefaultSubobject<UCombatComponent>(TEXT("Combat"));
+	// Skill
+	Skill = CreateDefaultSubobject<USkillComponent>(TEXT("Skill"));
 }
 
 void AHuman::BeginPlay()

@@ -47,6 +47,8 @@ protected:
 	void OnEquipSteelShadeTest();
 	// Attack
 	void OnBasicAttackPressed();
+	// Skill1
+	void OnSkill1Pressed();
 	
 protected:
 	// UI

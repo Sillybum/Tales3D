@@ -12,6 +12,7 @@
 #include "Core/Component/Equipment.h"
 #include "Core/Component/Inventory.h"
 #include "Core/Component/Progression.h"
+#include "Core/Component/SkillComponent.h"
 #include "Core/Component/Vital.h"
 #include "Core/Data/ItemData.h"
 
@@ -60,6 +61,7 @@ void ACoreController::SetupInputComponent()
 	InputComponent->BindKey(EKeys::Seven, IE_Pressed, this, &ACoreController::OnIncreaseStat_AGI);
 	InputComponent->BindKey(EKeys::E, IE_Pressed, this, &ACoreController::OnEquipSteelShadeTest);
 	InputComponent->BindKey(EKeys::A, IE_Pressed, this, &ACoreController::OnBasicAttackPressed);
+	InputComponent->BindKey(EKeys::O, IE_Pressed, this, &ACoreController::OnSkill1Pressed);
 }
 
 void ACoreController::PlayerTick(float DeltaTime)
@@ -259,6 +261,17 @@ void ACoreController::OnBasicAttackPressed()
 		{
 			H->BP_OnBasicAttackInput(SelectedEnemy);
 		}
+	}
+}
+
+void ACoreController::OnSkill1Pressed()
+{
+	AHuman* H = Cast<AHuman>(GetPawn());
+	if (!H || !H->Skill) return;
+
+	if (SelectedEnemy)
+	{
+		H->Skill->TrySkill1(SelectedEnemy);
 	}
 }
 
