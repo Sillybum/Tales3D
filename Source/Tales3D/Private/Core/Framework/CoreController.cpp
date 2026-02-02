@@ -59,7 +59,7 @@ void ACoreController::SetupInputComponent()
 	InputComponent->BindKey(EKeys::Six,   IE_Pressed, this, &ACoreController::OnIncreaseStat_DEX);
 	InputComponent->BindKey(EKeys::Seven, IE_Pressed, this, &ACoreController::OnIncreaseStat_AGI);
 	InputComponent->BindKey(EKeys::E, IE_Pressed, this, &ACoreController::OnEquipSteelShadeTest);
-	InputComponent->BindKey(EKeys::F, IE_Pressed, this, &ACoreController::OnBasicAttackPressed);
+	InputComponent->BindKey(EKeys::A, IE_Pressed, this, &ACoreController::OnBasicAttackPressed);
 }
 
 void ACoreController::PlayerTick(float DeltaTime)
@@ -253,19 +253,15 @@ void ACoreController::OnEquipSteelShadeTest()
 
 void ACoreController::OnBasicAttackPressed()
 {
-	AHuman* H = Cast<AHuman>(GetPawn());
-	if (!H || !H->Combat)
+	if (AHuman* H = Cast<AHuman>(GetPawn()))
 	{
-		UE_LOG(LogTemp, Warning, TEXT("onBasicattack can't find"));
-		return;
-	}
-	
-	// if only an enemy selected
-	if (SelectedEnemy)
-	{
-		H->Combat->TryBasicAttack(SelectedEnemy);
+		if (SelectedEnemy)
+		{
+			H->BP_OnBasicAttackInput(SelectedEnemy);
+		}
 	}
 }
+
 
 void ACoreController::SelectEnemy(AEnemy* NewEnemy)
 {

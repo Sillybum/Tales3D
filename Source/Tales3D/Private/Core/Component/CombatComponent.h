@@ -8,7 +8,7 @@
 
 class AEnemy;
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnCombatUIChanged);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnCombatStateChanged);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class UCombatComponent : public UActorComponent
@@ -17,58 +17,64 @@ class UCombatComponent : public UActorComponent
 
 public:	
 	UCombatComponent();
-
-	// Starts attacking monster targeted by PlayerController
-	UFUNCTION(BlueprintCallable, Category="Combat")
-	void TryBasicAttack(AEnemy* Target);
-	UFUNCTION(BlueprintCallable, Category="Combat")
-	void NotifyAttackHit();
-	// For UI
-	UFUNCTION(BlueprintPure, Category="Combat|UI")
-	int32 GetCurrentCombo() const { return CurrentCombo; }
-	UFUNCTION(BlueprintPure, Category="Combat|UI")
-	int32 GetMaxCombo() const { return MaxCombo; }
-	UFUNCTION(BlueprintPure, Category="Combat|UI")
-	float GetComboWindowPercent() const;
-	UFUNCTION(BlueprintPure, Category="Combat|UI")
-	bool IsComboWindowOpen() const { return bComboWindowOpen; }
 	
-	UPROPERTY(BlueprintAssignable, Category="Combat|UI")
-	FOnCombatUIChanged OnCombatUIChanged;
-	// Requests animation to play (Blueprint)
-
+	// Processes Input (Called from BP)
+	UFUNCTION(BlueprintCallable, Category="Combat|Basic")
+	bool CanStartBasicAttack(AEnemy* Target) const;
+	// Starts first combo (Initialize)
+	UFUNCTION(BlueprintCallable, Category="Combat|Basic")
+	void BeginBasicAttack(AEnemy* Target, int32 InMaxCombo);
+	// Input Buffer
+	UFUNCTION(BlueprintCallable, Category="Combat|Basic")
+	void QueueBasicInput();
+	// Checks if can cancel basic attack
+	UFUNCTION(BlueprintCallable, Category="Combat|Basic")
+	bool TryConsumeInputAndAdvance();
+	// opens/closes window (called from notify)
+	UFUNCTION(BlueprintCallable, Category="Combat|Basic")
+	void SetComboWindowOpen(bool bOpen);
+	// Hit Detection (called from notify)
+	UFUNCTION(BlueprintCallable, Category="Combat|Basic")
+	void NotifyAttackHit();
+	// Called when montage exits
+	UFUNCTION(BlueprintCallable, Category="Combat|Basic")
+	void EndBasicAttack();
+	
+	// ----------------------------
+	// Values read by BP/UI
+	// ----------------------------
+	UFUNCTION(BlueprintPure, Category="Combat|Combo")
+	bool IsComboWindowOpen() const { return bComboWindowOpen; }
+	UFUNCTION(BlueprintPure, Category="Combat|Combo")
+	int32 GetCurrentCombo() const { return CurrentCombo; }
+	UFUNCTION(BlueprintPure, Category="Combat|Combo")
+	int32 GetMaxCombo() const { return MaxCombo; }
+	UFUNCTION(BlueprintPure, Category="Combat|Combo")
+	FName GetCurrentComboSection() const;
+	UFUNCTION(BlueprintPure, Category="Combat|Combo")
+	
+	AEnemy* GetCurrentTarget() const { return CurrentTarget; }
+	FOnCombatStateChanged OnCombatStateChanged;
 	
 protected:
 	UPROPERTY(EditDefaultsOnly, Category="Combat")
 	float AttackRange = 200.f;
 	UPROPERTY(EditDefaultsOnly, Category="Combat")
 	int32 BasicAttackDamage = 10;
-	UPROPERTY(VisibleAnywhere, Category="Combat|Combo")
-	int32 MaxCombo = 1;
-	UPROPERTY(VisibleAnywhere, Category="Combat|Combo")
-	int32 CurrentCombo = 0;
 	
-	// Combo Window
-	UPROPERTY(EditDefaultsOnly, Category="Combat|Combo")
-	float ComboWindowDuration = 1.f;
-	
-	bool bComboWindowOpen = false;
-	float ComboWindowEndTime = 0.f;
-	
-	// Attack lock (prevents spamming attack)
-	UPROPERTY(EditDefaultsOnly, Category="Combat")
-	float AttackLockTime = 1.45f;
-	
-	bool bAttackLocked = false;
-	
-	// Current Target
+private:
 	UPROPERTY()
 	TObjectPtr<AEnemy> CurrentTarget;
 	
-	FTimerHandle Timer_AttackLock;
-	FTimerHandle Timer_CloseWindow;
+	int32 CurrentCombo = 0;
+	int32 MaxCombo = 5;
 	
-	void UnlockAttack();
-	void CloseComboWindow();
-	void OpenComboWindow();
+	bool bComboWindowOpen = false;
+	bool bInputQueued = false;
+	
+	// prevents duplicated hit (cases where somehow two notifies happen)
+	int32 LastHitComboIndex = 0;
+	
+	bool CanAdvance() const;
+	void AdvanceCombo_Internal();
 };

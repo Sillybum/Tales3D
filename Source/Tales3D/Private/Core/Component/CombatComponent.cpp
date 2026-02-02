@@ -3,101 +3,127 @@
 
 #include "Core/Component/CombatComponent.h"
 
+#include <ThirdParty/ShaderConductor/ShaderConductor/External/SPIRV-Headers/include/spirv/unified1/spirv.h>
+
 #include "HealthComponent.h"
+#include "Progression.h"
 #include "Core/Char/Enemy.h"
 #include "Core/Char/Human.h"
 
-UCombatComponent::UCombatComponent()
-{
-	PrimaryComponentTick.bCanEverTick = false;
-}
 
-void UCombatComponent::TryBasicAttack(AEnemy* Target)
+bool UCombatComponent::CanStartBasicAttack(AEnemy* Target) const
 {
-	AActor* Owner = GetOwner();
+	const AActor* Owner = GetOwner();
 	if (!Owner || !Target)
 	{
-		return;
-	}
-	if (bAttackLocked)
-	{
-		return;
+		return false;
 	}
 	
-	// Checks Distance
 	const float Dist = FVector::Dist(Owner->GetActorLocation(), Target->GetActorLocation());
-	if (Dist > AttackRange)
-	{
-		return;
-	}
-	
+	return Dist <= AttackRange;
+}
+
+void UCombatComponent::BeginBasicAttack(AEnemy* Target, int32 InMaxCombo)
+{
 	CurrentTarget = Target;
-	// Starts first combo
+	MaxCombo = FMath::Max(1, InMaxCombo);
 	CurrentCombo = 1;
-	MaxCombo = 1;
-	OpenComboWindow();
-	// Prevents attack before anim play ends
-	bAttackLocked = true;
-	if (UWorld* W = GetWorld())
+	
+	// Window be opened by notify
+	bComboWindowOpen = false;
+	// Initializes
+	bInputQueued = false;
+	LastHitComboIndex = 0;
+	
+	OnCombatStateChanged.Broadcast();
+}
+
+void UCombatComponent::QueueBasicInput()
+{
+	bInputQueued = true;
+	OnCombatStateChanged.Broadcast();
+}
+
+bool UCombatComponent::TryConsumeInputAndAdvance()
+{
+	// While Window && Input queued
+	if (!bComboWindowOpen)
 	{
-		W->GetTimerManager().SetTimer(Timer_AttackLock, this, &UCombatComponent::UnlockAttack, AttackLockTime, false);
+		UE_LOG(LogTemp,Warning, TEXT("TryConsumeInputAndAdvance: Window Closed"));
+		return false;
 	}
-	if (AHuman* H = Cast<AHuman>(Owner))
+	if (!bInputQueued)
 	{
-		H->BP_PlayBasicAttack();
-	}	
-	OnCombatUIChanged.Broadcast();
+		UE_LOG(LogTemp,Warning, TEXT("TryConsumeInputAndAdvance: No queue"));
+		return false;
+	}
+	if (!CanAdvance())
+	{
+		UE_LOG(LogTemp,Warning, TEXT("TryConsumeInputAndAdvance: Can't advance"));
+		return false;
+	}
+	AdvanceCombo_Internal();
+	return true;
+}
+
+void UCombatComponent::SetComboWindowOpen(bool bOpen)
+{
+	bComboWindowOpen = bOpen;
+	OnCombatStateChanged.Broadcast();
 }
 
 void UCombatComponent::NotifyAttackHit()
 {
-	if (!CurrentTarget)
-	{
-		return;
-	}
-	// Deals Damage
+	if (!CurrentTarget) return;
+	if (CurrentCombo <= 0) return;
+	
+	// prevents duplicated hit
+	if (LastHitComboIndex == CurrentCombo) return;
+	LastHitComboIndex = CurrentCombo;
+
 	if (UHealthComponent* H = CurrentTarget->FindComponentByClass<UHealthComponent>())
 	{
 		H->ApplyDamage(BasicAttackDamage);
 	}
 }
 
-float UCombatComponent::GetComboWindowPercent() const
+void UCombatComponent::EndBasicAttack()
 {
-	if (!bComboWindowOpen)
-	{
-		return 0.f;
-	}
-	
-	const float Now = GetWorld() ? GetWorld()->GetTimeSeconds() : 0.f;
-	const float Remain = FMath::Max(0.f, ComboWindowEndTime - Now);
-	return (ComboWindowDuration > 0.f) ? (Remain / ComboWindowDuration) : 0.f;
-}
-
-void UCombatComponent::UnlockAttack()
-{
-	bAttackLocked = false;
-}
-
-void UCombatComponent::CloseComboWindow()
-{
-	UE_LOG(LogTemp, Warning, TEXT("ComboWindow closes"));
-	bComboWindowOpen = false;
+	CurrentTarget = nullptr;
 	CurrentCombo = 0;
-	OnCombatUIChanged.Broadcast();
-}
-
-void UCombatComponent::OpenComboWindow()
-{
-	bComboWindowOpen = true;
-	UE_LOG(LogTemp, Warning, TEXT("ComboWindow opens"));
+	MaxCombo = 1;
+	bComboWindowOpen = false;
+	bInputQueued = false;
+	LastHitComboIndex = 0;
 	
-	if (UWorld* W = GetWorld())
-	{
-		ComboWindowEndTime = W->GetTimeSeconds() + ComboWindowDuration;
-		W->GetTimerManager().ClearTimer(Timer_CloseWindow);
-		W->GetTimerManager().SetTimer(Timer_CloseWindow, this, &UCombatComponent::CloseComboWindow, ComboWindowDuration, false);
-	}
-	OnCombatUIChanged.Broadcast();
+	OnCombatStateChanged.Broadcast();
 }
 
+FName UCombatComponent::GetCurrentComboSection() const
+{
+	// A1, A2, A3...
+	if (CurrentCombo <= 0) return NAME_None;
+	
+	const FString Name = FString::Printf(TEXT("A%d"), CurrentCombo);
+	return FName(*Name);
+}
+
+bool UCombatComponent::CanAdvance() const
+{
+	return (CurrentCombo > 0) && (CurrentCombo < MaxCombo);
+}
+
+void UCombatComponent::AdvanceCombo_Internal()
+{
+	if (!CanAdvance()) return;
+	
+	CurrentCombo += 1;
+	bComboWindowOpen = false;
+	bInputQueued = false;
+	OnCombatStateChanged.Broadcast();
+}
+
+UCombatComponent::UCombatComponent()
+{
+	PrimaryComponentTick.bCanEverTick = false;
+}

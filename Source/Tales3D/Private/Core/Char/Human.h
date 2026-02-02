@@ -8,6 +8,7 @@
 #include "Human.generated.h"
 // #include "Core/Data/ItemData.h"
 
+class AEnemy;
 enum class EPlayableCharacter : uint8;
 class UCameraComponent;
 class USpringArmComponent;
@@ -54,9 +55,6 @@ public:
 	// 애님블루프린트가 읽을 실제 상태
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="MoveMode")
 	bool bIsRunning = false;
-	// Called from UCombatComponent::TryBasicAttack
-	UFUNCTION(BlueprintImplementableEvent, Category="Combat|Anim")
-	void BP_PlayBasicAttack();
 	
 	// Custom Components
 	// Inventory
@@ -77,6 +75,10 @@ public:
 	// Attack & Combo
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Combat")
 	TObjectPtr<UCombatComponent> Combat;
+	// Attack Input
+	UFUNCTION(BlueprintImplementableEvent, Category="Combat|Input")
+	void BP_OnBasicAttackInput(AEnemy* Target);
+	
 private:
 	void ApplyMoveSpeed();
 };

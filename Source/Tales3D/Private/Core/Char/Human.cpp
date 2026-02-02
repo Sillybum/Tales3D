@@ -57,9 +57,7 @@ AHuman::AHuman()
 	Vital = CreateDefaultSubobject<UVital>(TEXT("Vital"));
 	// Equipment
 	Equipment = CreateDefaultSubobject<UEquipment>(TEXT("Equipment"));
-	// Attack & Combo
 	Combat = CreateDefaultSubobject<UCombatComponent>(TEXT("Combat"));
-	
 }
 
 void AHuman::BeginPlay()

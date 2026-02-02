@@ -45,8 +45,7 @@ protected:
 	
 	// (Test) Equipment
 	void OnEquipSteelShadeTest();
-	
-	// (Test) Attack
+	// Attack
 	void OnBasicAttackPressed();
 	
 protected:
