@@ -100,6 +100,9 @@ void UEquipment::SpawnAndAttachWeapon(const UWeaponItemData* WeaponData)
 	AActor* Spawned = World->SpawnActor<AActor>(WeaponClass, Params);
 	if (!Spawned) return;
 	
+	// Tag for making sword afterimage
+	Spawned->Tags.Add(FName(TEXT("EquippedWeapon")));
+	
 	Spawned->SetActorEnableCollision(false);
 	
 	// Server Ready (Replicated if spawned on server)
