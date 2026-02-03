@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4e033c4-e0fe-4576-8186-735bdda618e8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tales3D.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tales3D.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/_Core/Char/Shared/Human/Anim/ABP_Human.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/Char/Shared/Human/Anim/ABP_Human.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/_Core/Char/Shared/Human/Anim/Montage/AM_Skill1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/Char/Shared/Human/Anim/Montage/AM_Skill1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/_Core/Char/Shared/Human/BP_Human.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/Char/Shared/Human/BP_Human.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/_Core/FX/BP_AfterImage.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/FX/BP_AfterImage.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/_Core/FX/BP_AfterImage_Weapon.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/FX/BP_AfterImage_Weapon.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/_Core/FX/M_AfterImage.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/_Core/FX/M_AfterImage.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/CombatComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Tales3D/Private/Core/Component/CombatComponent.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,6 +185,7 @@
       <workItem from="1769992235466" duration="7924000" />
       <workItem from="1770006012479" duration="11233000" />
       <workItem from="1770078716140" duration="1214000" />
+      <workItem from="1770093682679" duration="1301000" />
     </task>
     <servers />
   </component>

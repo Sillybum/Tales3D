@@ -58,7 +58,7 @@ public:
 	
 protected:
 	UPROPERTY(EditDefaultsOnly, Category="Combat")
-	float AttackRange = 200.f;
+	float AttackRange = 250.f;
 	UPROPERTY(EditDefaultsOnly, Category="Combat")
 	int32 BasicAttackDamage = 10;
 	
